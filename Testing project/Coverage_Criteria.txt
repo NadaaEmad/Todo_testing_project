@@ -1,0 +1,54 @@
+///////////Coverage//////////////
+
+*****Create method****
+
+Test cases (From graph coverage and data flow):
+[1,2]	  ==> todo is null
+[1,3,4]	  ==> todo isn't null and the title is empty
+[1,3,5,6]	==> todo isn't null, the title isn't empty and the description is empty
+[1,3,5,7,8]	==> todo isn't null, the title isn't empty and the description isn't empty
+
+======================================================================
+ *****Read method****
+ 
+Test cases (From graph coverage and data flow):
+[1,2]	==> id is null
+[1,3,4]	==> id is empty
+[1,3,5,6,8,9] ==>id not null nor empty but todo is null
+[1,3,5,6,7,5,6,8,10] ==>normal flow
+
+=====================================================================================
+ *****Update method****
+
+Test cases (From graph coverage and data flow):
+[1,2,3,5,7,9]	==>Normal flow
+[1,2,3,5,8]	==>id is empty
+[1,2,3,6]	===>id is null
+[1,2,4]	==>id doesn't exist
+
+=====================================================================================
+*****Delete method****
+
+Test cases (From graph coverage and data flow):
+[1,2,3,5,7]	==>>Normal flow
+[1,2,3,5,8]	==> empty id
+[1,2,3,6]	==> null id
+[1,2,4]	==> id doesn't exist
+
+========================================================================================
+*****List all method****
+
+Test cases (From graph coverage and data flow):
+[1,3] ==> todos null
+[1,2] ==> todos not null
+
+============================================================================================
+ *****List Completed method****
+	
+Test cases (From graph coverage and data flow):	
+[1,2,4,5,6,8,4,9] ==> one completed todo (list of todos has only one todo and it's completed)
+[1,2,4,5,7,9]	==> list of todos has only one todo and it's not completed
+[1,2,4,5,6,8,4,5,7,9]	==> list of todos has one completed and one not completed
+[1,2,4,5,6,8,4,5,6,8,4,9]	==> list of todos has two completed todos
+[1,3]	 ==> todos null 
+============================================================================================
